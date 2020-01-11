@@ -21,6 +21,7 @@ services:
 networks: 
   my-cv-services:
     name: my-cv-services
+    external: false
     driver: bridge      
 
   
