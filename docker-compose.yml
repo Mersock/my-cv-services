@@ -1,0 +1,26 @@
+version: '3.7'
+services:
+  my-cv-mongo-db:
+    image: mongo:4.2.0
+    container_name: my-cv-mongo-db
+    ports:
+      - "27017:27017" 
+    networks: 
+      - my-cv-services    
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 12345678    
+  my-cv-redis:
+    image: redis:5.0.7    
+    container_name: my-cv-redis
+    ports: 
+      - "6379:6379"
+    networks: 
+      - my-cv-services   
+
+networks: 
+  my-cv-services:
+    name: my-cv-services
+    driver: bridge      
+
+  
